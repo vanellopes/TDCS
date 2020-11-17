@@ -20,7 +20,7 @@ public class Paciente extends Persona{
     @Column(name = "paciente_id")
     public Integer idPaciente;
     public String direccion;
-    private String numHistoriaClinica;
+    private String num_hc;
 
     public Paciente() {
     }
@@ -34,11 +34,11 @@ public class Paciente extends Persona{
     }
 
     public String getNumHistoriaClinica() {
-        return numHistoriaClinica;
+        return num_hc;
     }
 
     public void setNumHistoriaClinica(String numHistoriaClinica) {
-        this.numHistoriaClinica = numHistoriaClinica;
+        this.num_hc = numHistoriaClinica;
     }
 
 	public String getDireccion() {

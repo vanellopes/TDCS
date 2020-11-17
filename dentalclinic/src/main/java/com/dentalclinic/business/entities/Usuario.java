@@ -1,5 +1,6 @@
 package com.dentalclinic.business.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "usuario_id")
     private int idUsuario;
 
     private Integer estado;
@@ -22,7 +24,7 @@ public class Usuario {
 
     //bi-directional many-to-one association to Rol
     @ManyToOne
-    @JoinColumn(name="idRol")
+    @JoinColumn(name="rol_id")
     private Rol rol;
 
     public Usuario() {

@@ -1,5 +1,6 @@
 package com.dentalclinic.business.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -16,6 +17,7 @@ public class Odontologo extends Persona{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "odontologo_id")
     public Integer idOdontologo;
     private String matricula;
     public Odontologo() {

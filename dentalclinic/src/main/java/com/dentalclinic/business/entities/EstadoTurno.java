@@ -1,5 +1,6 @@
 package com.dentalclinic.business.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +15,7 @@ public class EstadoTurno {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+	@Column(name = "estado_turno_id")
     private int idEstado;
 
     private String descripcion;

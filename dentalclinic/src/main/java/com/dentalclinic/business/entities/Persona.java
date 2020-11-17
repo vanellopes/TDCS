@@ -3,21 +3,24 @@ package com.dentalclinic.business.entities;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 
 @MappedSuperclass
 public class Persona {
 
     private Integer num_documento;
-    private String nombres;
-    private String apellidos;
-    private Date fechaNacimiento;
+    private String nombre;
+    private String apellido;
+    private Date fecha_nac;
     private String celular;
-    private String email;
+    private String mail;
     
-    @OneToOne
-    private Usuario usuario;
+    @OneToOne(cascade=CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private Usuario usuario_id;
 
 
     public Persona() {
@@ -32,27 +35,27 @@ public class Persona {
     }
 
     public String getNombres() {
-        return nombres;
+        return nombre;
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        this.nombre = nombres;
     }
 
     public String getApellidos() {
-        return apellidos;
+        return apellido;
     }
 
     public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+        this.apellido = apellidos;
     }
 
     public Date getFechaNacimiento() {
-        return fechaNacimiento;
+        return fecha_nac;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha_nac = fechaNacimiento;
     }
 
     public String getCelular() {
@@ -64,19 +67,19 @@ public class Persona {
     }
 
     public String getEmail() {
-        return email;
+        return mail;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.mail = email;
     }
 
 	public Usuario getUsuario() {
-		return usuario;
+		return usuario_id;
 	}
 
 	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+		this.usuario_id = usuario;
 	}
 
 
