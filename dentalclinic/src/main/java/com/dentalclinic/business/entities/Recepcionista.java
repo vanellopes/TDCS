@@ -9,16 +9,14 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="recepcionista")
+@Table(name = "recepcionista")
 @PrimaryKeyJoinColumn(name = "recepcionista_id")
-public class Recepcionista extends Persona{
+public class Recepcionista {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "recepcionista_id")
-    public Integer idRecepcionista;
-    
-    
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "recepcionista_id")
+	public Integer idRecepcionista;
 
 	public Recepcionista(Integer idRecepcionista) {
 		super();
@@ -32,7 +30,5 @@ public class Recepcionista extends Persona{
 	public void setIdRecepcionista(Integer idRecepcionista) {
 		this.idRecepcionista = idRecepcionista;
 	}
-    
-    
-    
+
 }
