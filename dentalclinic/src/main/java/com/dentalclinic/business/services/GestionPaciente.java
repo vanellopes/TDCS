@@ -5,9 +5,11 @@ import com.dentalclinic.business.entities.Paciente;
 import java.util.List;
 
 public interface GestionPaciente {
-	
-    public void registrarPaciente(List<Paciente> pacientes);
-    
-    public List<Paciente> listarPacientes();
+
+	public List<Paciente> listarPacientes();
+
+	Paciente registrarPaciente(Paciente pacientes);
+
+	public Paciente insertar(Paciente oModelPersona);
 
 }
