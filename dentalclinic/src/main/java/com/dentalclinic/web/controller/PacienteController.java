@@ -22,7 +22,7 @@ public class PacienteController {
 	@Autowired
 	private GestionPaciente gestionPaciente;
 
-	@RequestMapping(value = "/listado-pacientes", method = RequestMethod.GET)
+	@RequestMapping(value = "/listado-paciente", method = RequestMethod.GET)
 	public ModelAndView lista(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		Map<String, Object> myModel = new HashMap<String, Object>();

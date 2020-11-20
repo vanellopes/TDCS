@@ -1,5 +1,7 @@
+<%@ include file="/WEB-INF/views/include.jsp" %>
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-	<a href="../index3.html" class="brand-link">
+	<a href="#" class="brand-link">
 		<img src="<c:url value="/static/dist/img/AdminLTELogo.png"/>"
 	       alt="AdminLTE Logo"
 	       class="brand-image img-circle elevation-3"
@@ -20,22 +22,32 @@
 		<nav class="mt-2">
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 				<li class="nav-item">
-					<a href="profesionales.html" class="nav-link">
+					<a href="<c:url value="index.jsp"/>" class="nav-link">
 						<i class="nav-icon fas fa-th"></i>Home
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="profesionales.html" class="nav-link">
-						<i class="nav-icon fas fa-user-md"></i>Profesionales
+					<a href="<c:url value="listado-odontologo"/>" class="nav-link">
+						<i class="nav-icon fas fa-user-md"></i>Odontologos
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="pacientes.html" class="nav-link">
+					<a href="<c:url value="nuevo-odontologo"/>" class="nav-link">
+						<i class="nav-icon fas fa-user-md"></i>Nuevo Odontologo
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<c:url value="listado-paciente"/>" class="nav-link">
 						<i class="nav-icon fas fa-tooth"></i>Pacientes
 					</a>
 				</li>
 				<li class="nav-item">
-					<a href="pacientes.html" class="nav-link">
+					<a href="<c:url value="nuevo-paciente"/>" class="nav-link">
+						<i class="nav-icon fas fa-tooth"></i>Nuevo Paciente
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<c:url value="#"/>" class="nav-link">
 						<i class="nav-icon fas fa-calendar"></i>Turnos
 					</a>
 				</li>

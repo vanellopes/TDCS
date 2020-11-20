@@ -19,6 +19,21 @@
 <div class="wrapper">
 <%@ include file="/WEB-INF/views/fragments/sidebar.jsp" %>
 	<div class="content-wrapper">
+	<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+	
 		<section class="content">
 
 	      <div class="card">
@@ -43,13 +58,13 @@
 	                          Nombre y Apellido
 	                      </th>
 	                      <th style="width: 20%">
-	                          Telefono
+	                          Matricula
 	                      </th>
 	                      <th>
-	                          Email
+	                          Celular
 	                      </th>
 	                      <th style="width: 18%" class="text-center">
-	                          Proxima cita
+	                          Email
 	                      </th>
 	                      <th style="width: 20%">
 	                      </th>
@@ -62,22 +77,16 @@
 	                          #
 	                      </td>
 	                      <td>
-	                          <a>
-	                              María Lopez
-	                          </a>
-	                          <br/>
-	                          <small>
-	                              Alta 01.01.2018
-	                          </small>
+	                          ${odontologo.nombre}, ${odontologo.apellido}
 	                      </td>
 	                      <td>
-	                          <small>+54 9</small> 351 <b>351-3513</b>
+	                          ${odontologo.matricula}
 	                      </td>
 	                      <td class="project_progress">
-	                          <c:out value="${odontologo.nombre}"/>
+	                          <small>+54 9</small> 351 <b>351-3513</b>
 	                      </td>
 	                      <td class="project-state">
-	                          21/12/2020 10:00 <span class="badge badge-success">Confirmada</span>
+	                          ${odontologo.email}
 	                      </td>
 	                      <td class="project-actions text-right">
 	                          <a class="btn btn-primary btn-sm" href="#">
