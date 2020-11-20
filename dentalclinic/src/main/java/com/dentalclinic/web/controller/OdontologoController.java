@@ -37,7 +37,7 @@ public class OdontologoController {
 		} catch (Exception e) {
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
-		return new ModelAndView("listadoPaciente", "model", myModel);
+		return new ModelAndView("listadoOdontologo", "model", myModel);
 	}
 
 	@RequestMapping(value = "/nuevo-odontologo", method = RequestMethod.GET)
