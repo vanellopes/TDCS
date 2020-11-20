@@ -37,7 +37,7 @@
 		</section>
 	
 		<section class="content">
-		<form id="frmIngreso" name="input" action="registrarPaciente" method="post">
+		<form id="frmIngreso" name="input" action="nuevo-paciente" method="post">
 				<div class="row">
 					<div class="col-md-6">
 						<div class="card card-primary">

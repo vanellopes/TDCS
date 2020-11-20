@@ -6,7 +6,7 @@
 <head>
 <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
- <title>DentalClinic | Listado Odontologos</title>
+ <title>DentalClinic | Listado Pacientes</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link href="<c:url value="/static/plugins/fontawesome-free/css/all.min.css" />" rel="stylesheet">
@@ -19,11 +19,25 @@
 <div class="wrapper">
 <%@ include file="/WEB-INF/views/fragments/sidebar.jsp" %>
 <div class="content-wrapper">
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
 		<section class="content">
 
 	      <div class="card">
 	        <div class="card-header">
-	          <h3 class="card-title">Odontologos</h3>
+	          <h3 class="card-title">Pacientes</h3>
 	
 	          <div class="card-tools">
 	            <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -43,6 +57,9 @@
 	                          Nombre y Apellido
 	                      </th>
 	                      <th style="width: 20%">
+	                          Historia Clinica
+	                      </th>
+	                      <th style="width: 20%">
 	                          Telefono
 	                      </th>
 	                      <th>
@@ -56,25 +73,22 @@
 	                  </tr>
 	              </thead>
 	              <tbody>
-	                <c:forEach items="${model.pacientes}" var="odontologo">
+	                <c:forEach items="${model.pacientes}" var="paciente">
 	                  <tr>
 	                      <td>
 	                          #
 	                      </td>
 	                      <td>
-	                          <a>
-	                              María Lopez
-	                          </a>
-	                          <br/>
-	                          <small>
-	                              Alta 01.01.2018
-	                          </small>
+	                           ${paciente.nombre}, ${paciente.apellido}
+	                      </td>
+	                      <td>
+	                          ${paciente.numHistoriaClinica}
 	                      </td>
 	                      <td>
 	                          <small>+54 9</small> 351 <b>351-3513</b>
 	                      </td>
 	                      <td class="project_progress">
-	                          <c:out value="${odontologo.nombre}"/>
+	                          <c:out value="${paciente.email}"/>
 	                      </td>
 	                      <td class="project-state">
 	                          21/12/2020 10:00 <span class="badge badge-success">Confirmada</span>

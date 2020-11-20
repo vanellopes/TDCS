@@ -66,7 +66,7 @@ public class OdontologoController {
 			System.out.println("registrarOdontologo" + e.getMessage());
 			return new ModelAndView("/error", "mensaje", e.getMessage());
 		}
-		return new ModelAndView("listPaciente");
+		return new ModelAndView("nuevoOdontologo");
 	}
 
 }
