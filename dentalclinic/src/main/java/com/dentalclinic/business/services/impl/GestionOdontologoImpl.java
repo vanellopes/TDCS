@@ -29,8 +29,7 @@ public class GestionOdontologoImpl implements GestionOdontologo {
 
 	@Override
 	public List<Odontologo> listarOdontologos() {
-		// TODO Auto-generated method stub
-		return null;
+		return odontologoRepository.findAll();
 	}
 
 	@Override

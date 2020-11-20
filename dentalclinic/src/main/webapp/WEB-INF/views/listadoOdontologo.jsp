@@ -18,7 +18,7 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 <%@ include file="/WEB-INF/views/fragments/sidebar.jsp" %>
-<div class="content-wrapper">
+	<div class="content-wrapper">
 		<section class="content">
 
 	      <div class="card">
@@ -56,7 +56,7 @@
 	                  </tr>
 	              </thead>
 	              <tbody>
-	                <c:forEach items="${model.pacientes}" var="odontologo">
+	                <c:forEach items="${model.odontologo}" var="odontologo">
 	                  <tr>
 	                      <td>
 	                          #
