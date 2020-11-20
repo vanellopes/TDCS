@@ -1,63 +1,67 @@
 package com.dentalclinic.web.controller;
 
+import com.dentalclinic.business.entities.Paciente;
 import com.dentalclinic.business.services.GestionPaciente;
 
-import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PacienteController {
-	
-	protected final Log logger = LogFactory.getLog(getClass());
-	
+
 	@Autowired
-    private GestionPaciente gestionPaciente;
-    
-    @RequestMapping(value="/registroPaciente")
-    public ModelAndView registroPaciente() {
-        String now = (new Date()).toString();
-        logger.info("Returning hello view with " + now);
+	private GestionPaciente gestionPaciente;
 
-        Map<String, Object> myModel = new HashMap<String, Object>();
-        myModel.put("now", now);
-        myModel.put("pacientes", this.gestionPaciente.listarPacientes());
+	@RequestMapping(value = "/listado-paciente", method = RequestMethod.GET)
+	public ModelAndView lista(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        return new ModelAndView("listPaciente", "model", myModel);
-    }
-    
-    @RequestMapping(value="/listarPacientes")
-    public ModelAndView listarPacientes() {
-        String now = (new Date()).toString();
-        logger.info("Returning hello view with " + now);
+		Map<String, Object> myModel = new HashMap<String, Object>();
+		try {
 
-        Map<String, Object> myModel = new HashMap<String, Object>();
-        myModel.put("now", now);
-        myModel.put("pacientes", this.gestionPaciente.listarPacientes());
+			List<Paciente> personas = this.gestionPaciente.listarPacientes();
+			myModel.put("paciente", personas);
+		} catch (Exception e) {
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
+		return new ModelAndView("listadoPaciente", "model", myModel);
+	}
 
-        return new ModelAndView("listPaciente", "model", myModel);
-    }
-    
-    @RequestMapping(value="/paciente.htm")
-    public ModelAndView handleRequest() {
-        String now = (new Date()).toString();
-        logger.info("Returning hello view with " + now);
+	@RequestMapping(value = "/nuevo-paciente", method = RequestMethod.GET)
+	public ModelAndView ingresar(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return new ModelAndView("nuevoPaciente");
+	}
 
-        Map<String, Object> myModel = new HashMap<String, Object>();
-        myModel.put("now", now);
-        myModel.put("pacientes", this.gestionPaciente.listarPacientes());
+	@RequestMapping(value = "/nuevo-paciente", method = RequestMethod.POST)
+	public ModelAndView registroOdontologo(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("registrarPaciente");
 
-        return new ModelAndView("listPaciente", "model", myModel);
-    }
-    
-    
-    
+		Paciente oModelPersona = new Paciente();
+		oModelPersona.setNombre(request.getParameter("txtNombre"));
+		oModelPersona.setNum_documento(Integer.parseInt(request.getParameter("txtDNI")));
+		oModelPersona.setApellido(request.getParameter("txtApellido"));
+		oModelPersona.setCelular(Integer.parseInt(request.getParameter("txtTelefono")));
+		oModelPersona.setNumHistoriaClinica(request.getParameter("txtMatricula"));
+		oModelPersona.setEmail(request.getParameter("txtEmail"));
+		String fecha = (request.getParameter("fecha"));
+		oModelPersona.convertFechaTurno(fecha);
 
+		try {
+			gestionPaciente.insertar(oModelPersona);
+
+		} catch (Exception e) {
+			System.out.println("registrarpaciente" + e.getMessage());
+			return new ModelAndView("/error", "mensaje", e.getMessage());
+		}
+		return new ModelAndView("nuevoPaciente");
+	}
 }
